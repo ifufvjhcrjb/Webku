@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>      KAII || MARKET</title> <!-- GANTI JUDUL TAB -->
+  <title>KAII || MARKET</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
@@ -33,6 +33,15 @@
       to { opacity: 1; transform: translateY(0);}
     }
 
+    .main-title {
+      font-size: 34px;
+      color: red;
+      margin: 20px auto;
+      text-align: center;
+      animation: popIn 1.2s ease;
+      text-shadow: 0 0 10px red;
+    }
+
     .profile-img {
       width: 150px;
       height: 150px;
@@ -52,14 +61,6 @@
       color: red;
       margin-top: 10px;
       animation: popIn 1s ease;
-    }
-
-    h2 {
-      font-size: 22px;
-      color: white;
-      margin-bottom: 10px;
-      opacity: 0.9;
-      animation: fadeIn 2s ease;
     }
 
     @keyframes popIn {
@@ -134,14 +135,29 @@
       100% { box-shadow: 0 0 0px red; }
     }
 
+    .credit {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 12px;
+      color: #ccc;
+      opacity: 0.6;
+      animation: fadeIn 2s ease;
+    }
+
+    .credit a {
+      color: #f44;
+      text-decoration: none;
+    }
+
     .promo-popup {
       display: none;
     }
   </style>
 </head>
 <body>
+  <h1 class="main-title">KAII || MARKET</h1>
+
   <div class="container">
-    <h2>KAII || MARKET</h2> <!-- TAMBAHAN JUDUL -->
     <img src="https://i.imgur.com/ayt0GSz.jpeg" alt="Foto Anda" class="profile-img" />
     <h1>⧼ OPEN PANEL MURMER ⧽</h1>
 
@@ -169,63 +185,9 @@
       <a href="https://whatsapp.com/channel/0029VbB5JTnKQuJOSx3Acw07" class="btn"><i class="fas fa-bullhorn"></i> Join Saluran WA</a>
       <a href="https://t.me/kuro_kaii" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
     </div>
-  </div>
 
-  <div class="notification" id="fridayNotification">
-    🎉 Spesial Hari Jumat! Semua harga berkurang Rp.500 - Rp.2000, hangus dalam: <span id="fridayCountdown">--:--:--</span>
-  </div>
-
-  <script>
-    const today = new Date();
-    const notif = document.getElementById("fridayNotification");
-    const countdownSpan = document.getElementById("fridayCountdown");
-
-    if (today.getDay() === 5) {
-      notif.style.display = "block";
-
-      const endTime = new Date();
-      endTime.setHours(23, 59, 59, 999);
-
-      const updateCountdown = () => {
-        const now = new Date();
-        const diff = endTime - now;
-
-        if (diff <= 0) {
-          countdownSpan.textContent = "00:00:00";
-          notif.style.display = "none";
-          return;
-        }
-
-        const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
-        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-
-        countdownSpan.textContent = `${hours}:${minutes}:${seconds}`;
-      };
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
-  </script>
-</body>
-</html>      <p>✿ 8GB=5K</p>
-      <p>𖠁 UNLI = 6K</p>
-    </div>
-
-    <div class="others">
-      <p>LAIN LAIN</p>
-      <p>`流` RESSELER = 14K</p>
-      <p>`流` ADP = 7K</p>
-      <p>`流` PT = 17K</p>
-      <p>`流` OWN = 19K</p>
-      <p>流 LEBIH LENGKAP TANYA PADA LINK DI BAWAH</p>
-    </div>
-
-    <div class="btn-group">
-      <a href="https://wa.me/628816759046" class="btn"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
-      <a href="https://chat.whatsapp.com/LklUaxmuxwL4aphWcl5vVH?mode=ac_t" class="btn"><i class="fas fa-users"></i> Join Grup WA</a>
-      <a href="https://whatsapp.com/channel/0029VbB5JTnKQuJOSx3Acw07" class="btn"><i class="fas fa-bullhorn"></i> Join Saluran WA</a>
-      <a href="https://t.me/kuro_kaii" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
+    <div class="credit">
+      Dibuat dengan ❤️ oleh <a href="https://openai.com/chatgpt" target="_blank">Noxxa (ChatGPT)</a> untuk Sayangku 😘
     </div>
   </div>
 
@@ -241,7 +203,6 @@
     if (today.getDay() === 5) {
       notif.style.display = "block";
 
-      // Hitung waktu ke jam 23:59:59 hari Jumat ini
       const endTime = new Date();
       endTime.setHours(23, 59, 59, 999);
 
