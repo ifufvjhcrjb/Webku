@@ -36,7 +36,7 @@
     .main-title {
       font-size: 34px;
       color: red;
-      margin: 20px auto;
+      margin: 20px auto 10px;
       text-align: center;
       animation: popIn 1.2s ease;
       text-shadow: 0 0 10px red;
@@ -68,7 +68,7 @@
       100% { transform: scale(1); opacity: 1;}
     }
 
-    .price-list, .others {
+    .price-list, .others, .services {
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       margin: 20px auto;
@@ -78,7 +78,7 @@
       backdrop-filter: blur(10px);
     }
 
-    .price-list p, .others p {
+    .price-list p, .others p, .services p {
       margin: 6px 0;
       font-size: 16px;
     }
@@ -148,10 +148,6 @@
       color: #f44;
       text-decoration: none;
     }
-
-    .promo-popup {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -178,13 +174,15 @@
       <p>`流` OWN = 19K</p>
       <p>流 LEBIH LENGKAP TANYA PADA LINK DI BAWAH</p>
     </div>
-<div class="services">
-  <p>Juga menyediakan jasa</p>
-  <p>- PASANG BOT / RUN BOT</p>
-  <p>- BUG / BAN</p>
-  <p>- JADI BOT</p>
-  <p>- SEWA BOT</p>
-</div>
+
+    <div class="services">
+      <p>Juga menyediakan jasa</p>
+      <p>- PASANG BOT / RUN BOT</p>
+      <p>- BUG / BAN</p>
+      <p>- JADI BOT</p>
+      <p>- SEWA BOT</p>
+    </div>
+
     <div class="btn-group">
       <a href="https://wa.me/628816759046" class="btn"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
       <a href="https://chat.whatsapp.com/LklUaxmuxwL4aphWcl5vVH?mode=ac_t" class="btn"><i class="fas fa-users"></i> Join Grup WA</a>
