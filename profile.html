@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel Murmer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #000, #111, #200, #400);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid red;
+      box-shadow: 0 0 20px red;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 28px;
+      color: red;
+      margin-top: 10px;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0;}
+      100% { transform: scale(1); opacity: 1;}
+    }
+
+    .price-list, .others {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      border: 2px solid red;
+      backdrop-filter: blur(10px);
+    }
+
+    .price-list p, .others p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+
+    .btn-group {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: black;
+      color: white;
+      border: 2px solid red;
+      border-radius: 30px;
+      padding: 14px 28px;
+      margin: 12px auto;
+      max-width: 300px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 0 10px red;
+    }
+
+    .btn:hover {
+      background: red;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px red;
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff0000;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+      display: none;
+      font-size: 14px;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0px red; }
+      50% { box-shadow: 0 0 20px red; }
+      100% { box-shadow: 0 0 0px red; }
+    }
+
+    .promo-popup {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.imgur.com/ayt0GSz.jpeg" alt="Foto Anda" class="profile-img" />
+    <h1>⧼ OPEN PANEL MURMER ⧽</h1>
+
+    <div class="price-list">
+      <p>☠︎︎ HARGA PANEL 1-10GB</p>
+      <p>❀ 2K</p>
+      <p>❀ 3K</p>
+      <p>✿ 4K</p>
+      <p>✿ 5K</p>
+      <p>𖠁 UNLI = 6K</p>
+    </div>
+
+    <div class="others">
+      <p>LAIN LAIN</p>
+      <p>`流` RESSELER = 14K</p>
+      <p>`流` ADP = 7K</p>
+      <p>`流` PT = 17K</p>
+      <p>`流` OWN = 19K</p>
+      <p>流 LEBIH LENGKAP TANYA PADA LINK DI BAWAH</p>
+    </div>
+
+    <div class="btn-group">
+      <a href="https://wa.me/628816759046" class="btn"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+      <a href="https://chat.whatsapp.com/LklUaxmuxwL4aphWcl5vVH?mode=ac_t" class="btn"><i class="fas fa-users"></i> Join Grup WA</a>
+      <a href="https://whatsapp.com/channel/0029VbB5JTnKQuJOSx3Acw07" class="btn"><i class="fas fa-bullhorn"></i> Join Saluran WA</a>
+      <a href="https://t.me/kuro_kaii" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+  </div>
+
+  <div class="notification" id="fridayNotification">
+    🎉 Spesial Hari Jumat! Semua harga berkurang Rp.500 - Rp.2000, hangus dalam: <span id="fridayCountdown">--:--:--</span>
+  </div>
+
+  <script>
+    const today = new Date();
+    const notif = document.getElementById("fridayNotification");
+    const countdownSpan = document.getElementById("fridayCountdown");
+
+    if (today.getDay() === 5) {
+      notif.style.display = "block";
+
+      // Hitung waktu ke jam 23:59:59 hari Jumat ini
+      const endTime = new Date();
+      endTime.setHours(23, 59, 59, 999);
+
+      const updateCountdown = () => {
+        const now = new Date();
+        const diff = endTime - now;
+
+        if (diff <= 0) {
+          countdownSpan.textContent = "00:00:00";
+          notif.style.display = "none";
+          return;
+        }
+
+        const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+        countdownSpan.textContent = `${hours}:${minutes}:${seconds}`;
+      };
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+  </script>
+</body>
+</html>
