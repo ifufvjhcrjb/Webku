@@ -15,24 +15,20 @@
       color: white;
       overflow-x: hidden;
     }
-
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     .container {
       text-align: center;
       padding: 40px 20px;
       animation: fadeIn 1.5s ease;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px);}
       to { opacity: 1; transform: translateY(0);}
     }
-
     .main-title {
       font-size: 34px;
       color: red;
@@ -41,7 +37,6 @@
       animation: popIn 1.2s ease;
       text-shadow: 0 0 10px red;
     }
-
     .profile-img {
       width: 150px;
       height: 150px;
@@ -51,24 +46,20 @@
       box-shadow: 0 0 20px red;
       transition: transform 0.3s ease;
     }
-
     .profile-img:hover {
       transform: scale(1.05);
     }
-
     h1 {
       font-size: 28px;
       color: red;
       margin-top: 10px;
       animation: popIn 1s ease;
     }
-
     @keyframes popIn {
       0% { transform: scale(0); opacity: 0;}
       100% { transform: scale(1); opacity: 1;}
     }
-
-    .price-list, .others, .services {
+    .price-list, .others, .services, .murban {
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       margin: 20px auto;
@@ -77,16 +68,13 @@
       border: 2px solid red;
       backdrop-filter: blur(10px);
     }
-
-    .price-list p, .others p, .services p {
+    .price-list p, .others p, .services p, .murban p {
       margin: 6px 0;
       font-size: 16px;
     }
-
     .btn-group {
       margin-top: 30px;
     }
-
     .btn {
       display: flex;
       align-items: center;
@@ -106,14 +94,12 @@
       text-decoration: none;
       box-shadow: 0 0 10px red;
     }
-
     .btn:hover {
       background: red;
       color: black;
       transform: scale(1.05);
       box-shadow: 0 0 20px red;
     }
-
     .notification {
       position: fixed;
       bottom: 20px;
@@ -127,14 +113,13 @@
       animation: pulse 1.5s infinite;
       display: none;
       font-size: 14px;
+      z-index: 999;
     }
-
     @keyframes pulse {
       0% { box-shadow: 0 0 0px red; }
       50% { box-shadow: 0 0 20px red; }
       100% { box-shadow: 0 0 0px red; }
     }
-
     .credit {
       margin-top: 60px;
       text-align: center;
@@ -143,7 +128,6 @@
       opacity: 0.6;
       animation: fadeIn 2s ease;
     }
-
     .credit a {
       color: #f44;
       text-decoration: none;
@@ -152,7 +136,6 @@
 </head>
 <body>
   <h1 class="main-title">KAII || MARKET</h1>
-
   <div class="container">
     <img src="https://i.imgur.com/ayt0GSz.jpeg" alt="Foto Anda" class="profile-img" />
     <h1>⧼ OPEN PANEL MURMER ⧽</h1>
@@ -181,6 +164,13 @@
       <p>- BUG / BAN</p>
       <p>- JADI BOT</p>
       <p>- SEWA BOT</p>
+      <p>- jasa murbot (private 20k, public 10k)</p>
+    </div>
+
+    <div class="murban">
+      <p>JASA MURBAN</p>
+      <p>- private 20k</p>
+      <p>- public 10k</p>
     </div>
 
     <div class="btn-group">
@@ -195,40 +185,69 @@
     </div>
   </div>
 
+  <!-- Notif Promo Jumat -->
   <div class="notification" id="fridayNotification">
     🎉 Spesial Hari Jumat! Semua harga berkurang Rp.500 - Rp.2000, hangus dalam: <span id="fridayCountdown">--:--:--</span>
   </div>
 
+  <!-- Notif Promo 10-17 Agustus -->
+  <div class="notification" id="augustNotification" style="background: red ;">
+    🇲🇨🥳 Khusus 17 Agustus! Harga diskon 50% sampai 17 Agustus 23:59:59 — Sisa waktu: <span id="augustCountdown">--:--:--</span>
+  </div>
+
   <script>
     const today = new Date();
-    const notif = document.getElementById("fridayNotification");
-    const countdownSpan = document.getElementById("fridayCountdown");
+    const fridayNotif = document.getElementById("fridayNotification");
+    const fridayCountdown = document.getElementById("fridayCountdown");
 
     if (today.getDay() === 5) {
-      notif.style.display = "block";
-
+      fridayNotif.style.display = "block";
       const endTime = new Date();
       endTime.setHours(23, 59, 59, 999);
 
-      const updateCountdown = () => {
+      const updateFridayCountdown = () => {
         const now = new Date();
         const diff = endTime - now;
-
         if (diff <= 0) {
-          countdownSpan.textContent = "00:00:00";
-          notif.style.display = "none";
+          fridayCountdown.textContent = "00:00:00";
+          fridayNotif.style.display = "none";
           return;
         }
-
         const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
         const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
         const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-
-        countdownSpan.textContent = `${hours}:${minutes}:${seconds}`;
+        fridayCountdown.textContent = `${hours}:${minutes}:${seconds}`;
       };
+      updateFridayCountdown();
+      setInterval(updateFridayCountdown, 1000);
+    }
 
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+    // Event 10-17 Agustus
+    const augustNotif = document.getElementById("augustNotification");
+    const augustCountdown = document.getElementById("augustCountdown");
+
+    const startPromo = new Date(today.getFullYear(), 7, 10, 0, 0, 0); // 10 Agustus
+    const endPromo = new Date(today.getFullYear(), 7, 17, 23, 59, 59, 999); // 17 Agustus
+
+    if (today >= startPromo && today <= endPromo) {
+      augustNotif.style.display = "block";
+
+      const updateAugustCountdown = () => {
+        const now = new Date();
+        const diff = endPromo - now;
+        if (diff <= 0) {
+          augustCountdown.textContent = "00:00:00";
+          augustNotif.style.display = "none";
+          return;
+        }
+        const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+        augustCountdown.textContent = `${days}d ${hours}:${minutes}:${seconds}`;
+      };
+      updateAugustCountdown();
+      setInterval(updateAugustCountdown, 1000);
     }
   </script>
 </body>
