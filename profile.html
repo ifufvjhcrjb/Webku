@@ -1,114 +1,3 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KAII || MARKET</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(-45deg, #000, #111, #200, #400);
-      background-size: 400% 400%;
-      animation: gradientBG 10s ease infinite;
-      color: white;
-      overflow-x: hidden;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .container {
-      text-align: center;
-      padding: 40px 20px;
-      animation: fadeIn 1.5s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .main-title {
-      font-size: 34px;
-      color: red;
-      margin: 20px auto 10px;
-      text-align: center;
-      animation: popIn 1.2s ease;
-      text-shadow: 0 0 10px red;
-    }
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid red;
-      box-shadow: 0 0 20px red;
-      transition: transform 0.3s ease;
-    }
-    .profile-img:hover {
-      transform: scale(1.05);
-    }
-    h1 {
-      font-size: 28px;
-      color: red;
-      margin-top: 10px;
-      animation: popIn 1s ease;
-    }
-    @keyframes popIn {
-      0% { transform: scale(0); opacity: 0;}
-      100% { transform: scale(1); opacity: 1;}
-    }
-    .price-list, .others, .services, .murban {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 10px;
-      max-width: 400px;
-      border: 2px solid red;
-      backdrop-filter: blur(10px);
-    }
-    .price-list p, .others p, .services p, .murban p {
-      margin: 6px 0;
-      font-size: 16px;
-    }
-    .btn-group {
-      margin-top: 30px;
-    }
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: black;
-      color: white;
-      border: 2px solid red;
-      border-radius: 30px;
-      padding: 14px 28px;
-      margin: 12px auto;
-      max-width: 300px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      box-shadow: 0 0 10px red;
-    }
-    .btn:hover {
-      background: red;
-      color: black;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px red;
-    }
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff0000;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 30px;
-      font-weight: bold;
       cursor: pointer;
       animation: pulse 1.5s infinite;
       display: none;
@@ -194,8 +83,130 @@
   <div class="notification" id="augustNotification" style="background: red ;">
     🇲🇨🥳 Khusus 17 Agustus! Harga diskon 50% sampai 17 Agustus 23:59:59 — Sisa waktu: <span id="augustCountdown">--:--:--</span>
   </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KAII || MARKET</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="main-title">KAII || MARKET</h1>
+
+  <div class="container">
+    <div class="header">
+      <img src="https://i.imgur.com/ayt0GSz.jpeg" alt="Foto Anda" class="avatar" />
+      <h2 class="subtitle">⧼ OPEN PANEL MURMER ⧽</h2>
+    </div>
+
+    <div class="promo-banner" id="promoBanner" style="display:none;">
+      🇲🇨🥳 Khusus 17 Agustus! Harga diskon 50% sampai 17 Agustus 23:59:59
+    </div>
+
+    <div class="price-list">
+      <p>☠︎︎ HARGA PANEL 1-10GB</p>
+      <p>❀ 2GB=2K</p>
+      <p>❀ 4GB=3K</p>
+      <p>✿ 6GB=4K</p>
+      <p>✿ 8GB=5K</p>
+      <p>𖠁 UNLI = 6K</p>
+    </div>
+
+    <div class="others">
+      <p>LAIN LAIN</p>
+      <p>`流` RESSELER = 14K</p>
+      <p>`流` ADP = 7K</p>
+      <p>`流` PT = 17K</p>
+      <p>`流` OWN = 19K</p>
+      <p>流 LEBIH LENGKAP TANYA PADA LINK DI BAWAH</p>
+    </div>
+
+    <div class="services">
+      <p>Juga menyediakan jasa</p>
+      <p>- PASANG BOT / RUN BOT</p>
+      <p>- BUG / BAN</p>
+      <p>- JADI BOT</p>
+      <p>- SEWA BOT</p>
+      <p>- jasa murbot (private 20k, public 10k)</p>
+    </div>
+
+    <div class="murban">
+      <p>JASA MURBAN</p>
+      <p>- private 20k</p>
+      <p>- public 10k</p>
+    </div>
+
+    <div class="btn-group">
+      <a href="https://wa.me/628816759046" class="btn"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+      <a href="https://chat.whatsapp.com/LklUaxmuxwL4aphWcl5vVH?mode=ac_t" class="btn"><i class="fas fa-users"></i> Join Grup WA</a>
+      <a href="https://whatsapp.com/channel/0029VbB5JTnKQuJOSx3Acw07" class="btn"><i class="fas fa-bullhorn"></i> Join Saluran WA</a>
+      <a href="https://t.me/kuro_kaii" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+
+    <p class="info-text">
+      silahkan membuat pesanan 🥰🥰
+    </p>
+
+    <form id="orderForm" style="display:none;">
+      <h2>Form Pesanan</h2>
+
+      <div class="form-group">
+        <label for="customerName">Nama</label>
+        <input type="text" id="customerName" placeholder="Nama Anda" required />
+      </div>
+
+      <div class="form-group">
+        <label for="customerPhone">Nomor (format 62...)</label>
+        <input type="tel" id="customerPhone" placeholder="6281234567890" pattern="62[0-9]{8,}" required />
+      </div>
+
+      <div id="itemsContainer">
+        <div class="item-row">
+          <select class="product-select" required>
+            <option value="" disabled selected>Pilih produk</option>
+            <option value="2GB=2000">2GB = Rp 2.000</option>
+            <option value="4GB=3000">4GB = Rp 3.000</option>
+            <option value="6GB=4000">6GB = Rp 4.000</option>
+            <option value="8GB=5000">8GB = Rp 5.000</option>
+            <option value="UNLI=6000">UNLI = Rp 6.000</option>
+            <option value="RESSELER=14000">RESSELER = Rp 14.000</option>
+            <option value="ADP=7000">ADP = Rp 7.000</option>
+            <option value="PT=17000">PT = Rp 17.000</option>
+            <option value="OWN=19000">OWN = Rp 19.000</option>
+          </select>
+          <input type="text" placeholder="Nama Panel" class="name-panel" />
+          <button type="button" class="remove-btn" title="Hapus item">✖</button>
+        </div>
+      </div>
+
+      <button type="button" id="addItemBtn" class="btn">+ Tambah Pesanan</button>
+
+      <div class="form-group promo-code-group">
+        <label for="promoCode">Kode Promo</label>
+        <input type="text" id="promoCode" placeholder="Masukkan kode promo jika ada" />
+      </div>
+
+      <button type="submit" class="btn submit-btn">Kirim Pesanan</button>
+    </form>
+
+    <button id="showOrderFormBtn" class="btn order-btn">📋 Buat Pesanan</button>
+
+    <div class="credit">
+      Dibuat dengan ❤️ oleh <a href="https://openai.com/chatgpt" target="_blank">Noxxa (ChatGPT)</a> untuk Sayangku 😘
+    </div>
+  </div>
+
+  <div class="notification" id="fridayNotification">
+    🎉 Spesial Hari Jumat! Semua harga berkurang Rp.500 - Rp.2000, hangus dalam: <span id="fridayCountdown">--:--:--</span>
+  </div>
 
   <script>
+    // Promo Jumat
     const today = new Date();
     const fridayNotif = document.getElementById("fridayNotification");
     const fridayCountdown = document.getElementById("fridayCountdown");
@@ -222,33 +233,157 @@
       setInterval(updateFridayCountdown, 1000);
     }
 
-    // Event 10-17 Agustus
-    const augustNotif = document.getElementById("augustNotification");
-    const augustCountdown = document.getElementById("augustCountdown");
-
-    const startPromo = new Date(today.getFullYear(), 7, 10, 0, 0, 0); // 10 Agustus
-    const endPromo = new Date(today.getFullYear(), 7, 17, 23, 59, 59, 999); // 17 Agustus
+    // Promo 17 Agustus (10-17)
+    const promoBanner = document.getElementById("promoBanner");
+    const startPromo = new Date(today.getFullYear(), 7, 10, 0, 0, 0);
+    const endPromo = new Date(today.getFullYear(), 7, 17, 23, 59, 59, 999);
 
     if (today >= startPromo && today <= endPromo) {
-      augustNotif.style.display = "block";
+      promoBanner.style.display = "block";
+    }
 
-      const updateAugustCountdown = () => {
-        const now = new Date();
-        const diff = endPromo - now;
-        if (diff <= 0) {
-          augustCountdown.textContent = "00:00:00";
-          augustNotif.style.display = "none";
+    // Show/hide form pesanan
+    const showOrderFormBtn = document.getElementById("showOrderFormBtn");
+    const orderForm = document.getElementById("orderForm");
+
+    showOrderFormBtn.addEventListener("click", () => {
+      if (orderForm.style.display === "none" || !orderForm.style.display) {
+        orderForm.style.display = "block";
+        showOrderFormBtn.style.display = "none";
+        orderForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
+    // Add/remove items
+    const itemsContainer = document.getElementById("itemsContainer");
+    const addItemBtn = document.getElementById("addItemBtn");
+
+    addItemBtn.addEventListener("click", () => {
+      if (itemsContainer.children.length >= 10) {
+        alert("Stok maksimal 10 item ya!");
+        return;
+      }
+      const newItem = document.createElement("div");
+      newItem.classList.add("item-row");
+      newItem.innerHTML = `
+        <select class="product-select" required>
+          <option value="" disabled selected>Pilih produk</option>
+          <option value="2GB=2000">2GB = Rp 2.000</option>
+          <option value="4GB=3000">4GB = Rp 3.000</option>
+          <option value="6GB=4000">6GB = Rp 4.000</option>
+          <option value="8GB=5000">8GB = Rp 5.000</option>
+          <option value="UNLI=6000">UNLI = Rp 6.000</option>
+          <option value="RESSELER=14000">RESSELER = Rp 14.000</option>
+          <option value="ADP=7000">ADP = Rp 7.000</option>
+          <option value="PT=17000">PT = Rp 17.000</option>
+          <option value="OWN=19000">OWN = Rp 19.000</option>
+        </select>
+        <input type="text" placeholder="Nama Panel" class="name-panel" />
+        <button type="button" class="remove-btn" title="Hapus item">✖</button>
+      `;
+      itemsContainer.appendChild(newItem);
+      newItem.querySelector(".remove-btn").addEventListener("click", () => {
+        newItem.remove();
+      });
+    });
+
+    // Remove button for initial row
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.target.closest(".item-row").remove();
+      });
+    });
+
+    // Kirim pesanan ke Telegram
+    const orderFormEl = document.getElementById("orderForm");
+    orderFormEl.addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const name = document.getElementById("customerName").value.trim();
+      const phone = document.getElementById("customerPhone").value.trim();
+      const promoCode = document.getElementById("promoCode").value.trim().toLowerCase();
+
+      if (!name || !phone.match(/^62[0-9]{8,}$/)) {
+        alert("Mohon isi nama dan nomor telepon dengan format benar (62...).");
+        return;
+      }
+
+      const items = [];
+      let total = 0;
+      let promoValid = false;
+
+      for (const row of itemsContainer.children) {
+        const select = row.querySelector(".product-select");
+        const panelName = row.querySelector(".name-panel").value.trim() || "-";
+
+        if (!select.value) {
+          alert("Mohon pilih produk pada semua pesanan.");
           return;
         }
-        const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-        const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
-        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-        augustCountdown.textContent = `${days}d ${hours}:${minutes}:${seconds}`;
-      };
-      updateAugustCountdown();
-      setInterval(updateAugustCountdown, 1000);
-    }
+
+        const [product, priceStr] = select.value.split("=");
+        let price = parseInt(priceStr);
+
+        // Promo tidak berlaku untuk produk lain lain (LAIN LAIN)
+        const noPromoProducts = ["RESSELER", "ADP", "PT", "OWN"];
+        if (promoCode === "kurokaii" && !noPromoProducts.includes(product)) {
+          price = Math.floor(price / 2);
+          promoValid = true;
+        }
+
+        total += price;
+        items.push(`- ${product} (${panelName}) = Rp ${price.toLocaleString("id-ID")}`);
+      }
+
+      if (items.length === 0) {
+        alert("Mohon tambahkan minimal satu pesanan.");
+        return;
+      }
+
+      // Format tanggal
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, "0");
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const year = now.getFullYear();
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+      const seconds = String(now.getSeconds()).padStart(2, "0");
+      const orderDate = `${day}/${month}/${year}, ${hours}.${minutes}.${seconds}`;
+
+      // Format pesan Telegram
+      const message =
+        `Nama = ${name}\n` +
+        `Nomor = https://wa.me/${phone}\n` +
+        `Pesanan =\n${items.join("\n")}\n` +
+        `Total Harga = Rp ${total.toLocaleString("id-ID")} (promo=${promoValid ? "✅" : "❌"})\n` +
+        `Order tanggal = ${orderDate}`;
+
+      // Kirim ke Telegram Bot
+      const token = "8109014051:AAFPcpQIcCF3vaHAQt0tTLfFE6zspbC2mso";
+      const chatId = "8073946537";
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: chatId, text: message }),
+        });
+        const data = await response.json();
+        if (data.ok) {
+          alert("Pesanan berhasil dikirim, terima kasih!");
+          orderFormEl.reset();
+          // Reset ke 1 item saja
+          while (itemsContainer.children.length > 1) {
+            itemsContainer.lastChild.remove();
+          }
+        } else {
+          alert("Gagal mengirim pesanan. Silakan coba lagi.");
+        }
+      } catch (error) {
+        alert("Error saat mengirim pesanan: " + error.message);
+      }
+    });
   </script>
 </body>
 </html>
