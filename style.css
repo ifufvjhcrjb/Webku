@@ -13,27 +13,25 @@ body {
 100%{background-position:0% 50%}
 }
 .container{
-  text-align:center;
-  padding:40px 20px;
+.container {
+  text-align: center;
+  padding: 40px 20px;
 }
-.main-title{
-  font-size:34px;
-  color:red;
-  text-shadow:0 0 10px red;
+
+.main-title {
+  font-size: 34px;
+  color: red;
+  margin-bottom: 20px; /* memberi jarak ke gambar */
+  text-shadow: 0 0 10px red;
 }
-.sub-title{
-  font-size:28px;
-  color:red;
-  margin-top:10px;
-}
-.profile-img{
-  width:150px;
-  height:150px;
-  object-fit:cover;
-  border-radius:50%;
-  border:4px solid red;
-  box-shadow:0 0 20px red;
-  transition:transform .3s ease;
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid red;
+  box-shadow: 0 0 20px red;
 }
 .profile-img:hover{transform:scale(1.05);}
 .price-list,.others,.services,.murban{
